@@ -1,0 +1,43 @@
+<!--*********************************
+|                                   |
+| Screen Size and Pixel Coordinates |
+| Author: Tim Keeley 2018           |
+|                                   |
+**********************************--> 
+
+<!--TODO-->
+<!--
+• Possible Drag and Drop info box to anyhwere on the page
+•Fix refresh hangup
+•Validate URL input
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{margin: 0;}
+iframe { width:100vw; height:100vh; }
+#over { font-size:1em; position:absolute; top:10px; left:20px; z-index:2; float: left; width: -webkit-fill-available; height: -webkit-fill-available;}
+p {border: 1px solid black; width: 200px; text-align: center; padding: 6px; border-radius: 6px; box-shadow: 8px 8px 8px rgba(35, 35, 35,0.8); background-color:  white;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(document).mousemove(function(event){
+        $("span").text(event.pageX + "px , " + event.pageY + "px ");
+    });
+});
+var link = prompt("Please enter the website you'd like to use");
+function getSize(){
+var w = document.documentElement.clientWidth;
+var h = document.documentElement.clientHeight;
+document.getElementById('over').innerHTML = "<p>Your screen is: <br> " + w + "px wide , " + h + "px high <br> <p>Mouse is at coordinates: <br><span></span></p>";
+}
+</script>
+</head>
+<body onload="getSize()" onresize="getSize()">
+<script>document.write('<iframe src="http://' + link + '"></iframe>');</script>
+<div id="over"></div>
+</body>
+</html>
