@@ -5,4 +5,4 @@ Find the coordinates of the mouse over a website loaded in an iframe to determin
 ## Description
 
 * Promps the use for a web address to use.
-* Loads the site into an iframe and tracks mouse position to get pixel coorinates
+* Loads the site into an iframe and tracks mouse position to get pixel coordinates
